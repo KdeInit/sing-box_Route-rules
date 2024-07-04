@@ -1,0 +1,92 @@
+name: 'Auto Fetch Rules'
+on:
+  push:
+    branches: [main]
+  schedule:
+  - cron: '0 */12 * * *'
+  workflow_dispatch:
+ 
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions bot"
+
+      - name: ruleset.skk.moe-domainset-reject
+        uses: carlosperate/download-file-action@v2
+        with: 
+          file-url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/reject.conf
+          file-name: ruleset.skk.moe-domainset-reject.conf
+          location: './rules'
+
+      - name: ruleset.skk.moe-non_ip-reject
+        uses: carlosperate/download-file-action@v2
+        with: 
+          file-url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/reject.conf
+          file-name: ruleset.skk.moe-non_ip-reject.conf
+          location: './rules'
+
+      - name: ruleset.skk.moe-non_ip-reject-drop
+        uses: carlosperate/download-file-action@v2
+        with: 
+          file-url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/reject-drop.conf
+          file-name: ruleset.skk.moe-non_ip-reject.conf
+          location: './rules'
+
+      - name: ruleset.skk.moe-ip-reject
+        uses: carlosperate/download-file-action@v2
+        with: 
+          file-url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/reject.conf
+          file-name: ruleset.skk.moe-ip-reject.conf
+          location: './rules'
+
+      - name: ruleset.skk.moe-non_ip-ai
+        uses: carlosperate/download-file-action@v2
+        with: 
+          file-url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/ai.conf
+          file-name: ruleset.skk.moe-non_ip-ai.conf
+          location: './rules'
+
+      - name: ruleset.skk.moe-ip-telegram
+        uses: carlosperate/download-file-action@v2
+        with: 
+          file-url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/telegram.conf
+          file-name: ruleset.skk.moe-ip-telegram.conf
+          location: './rules'
+
+      - name: ruleset.skk.moe-ip-lan
+        uses: carlosperate/download-file-action@v2
+        with: 
+          file-url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/lan.conf
+          file-name: ruleset.skk.moe-ip-lan.conf
+          location: './rules'
+
+      - name: ruleset.skk.moe-non_ip-lan
+        uses: carlosperate/download-file-action@v2
+        with: 
+          file-url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/lan.conf
+          file-name: ruleset.skk.moe-non_ip-lan.conf
+          location: './rules'
+
+      - name: Commit Changes
+        env:
+          TZ: America/New_York
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then 
+              exit 0
+            else 
+              git add .
+              git commit -m ":pencil: Fetch at  $(date +"%Y-%m-%d %H:%M")" -a
+            fi
+
+      - name: GitHub Push
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
