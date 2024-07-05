@@ -21,8 +21,8 @@ jobs:
       - name: ruleset.skk.moe-domainset-reject
         uses: carlosperate/download-file-action@v2
         with: 
-          file-url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/reject.conf
-          file-name: ruleset.skk.moe-domainset-reject.conf
+          file-url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/Clash/domainset/reject.txt
+          file-name: ruleset.skk.moe-domainset-reject.txt
           location: './rules'
 
       - name: ruleset.skk.moe-non_ip-reject

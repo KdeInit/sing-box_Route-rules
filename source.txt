@@ -1,4 +1,4 @@
-https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/rules/ruleset.skk.moe-domainset-reject.conf
+https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/rules/ruleset.skk.moe-domainset-reject.txt
 https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/rules/ruleset.skk.moe-non_ip-reject.conf
 https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/rules/ruleset.skk.moe-non_ip-reject.conf
 https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/rules/ruleset.skk.moe-ip-reject.conf
