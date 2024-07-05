@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "domain": [
+        "geo2.adobe.com",
+        "this_ruleset_is_made_by_sukkaw.ruleset.skk.moe"
+      ]
+    },
+    {
+      "domain_suffix": [
+        ".geo2.adobe.com"
+      ]
+    }
+  ],
+  "version": 1
+}
