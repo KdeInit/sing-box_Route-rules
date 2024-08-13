@@ -91,8 +91,15 @@ def parse_list_file(link, output_directory):
         file_name = os.path.join(output_directory, f"{base_file_name}.json")
         response = requests.get(link)
         response.raise_for_status()
+        json_data = response.json()
+
+        # sing-box rule-set format version 2 is not supported in latest release. 
+        # Temporarily convert to version 1, if needed.
+        if json_data.get("version") == 2:
+            json_data["version"] = 1
+
         with open(file_name, "w", encoding="utf-8") as output_file:
-            output_file.write(response.text)
+            json.dump(json_data, output_file, ensure_ascii=False, indent=2)
     else:
         with concurrent.futures.ThreadPoolExecutor() as executor:
             results = list(executor.map(parse_and_convert_to_dataframe, [link]))
