@@ -1,0 +1,14 @@
+- file_name: ruleset.skk.moe-domainset-reject.txt
+  url: https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-domainset-reject.txt
+- file_name: ruleset.skk.moe-non_ip-reject.conf
+  url: https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-non_ip-reject.conf
+- file_name: ruleset.skk.moe-ip-reject.conf
+  url: https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-ip-reject.conf
+- file_name: ruleset.skk.moe-non_ip-ai.conf
+  url: https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-non_ip-ai.conf
+- file_name: ruleset.skk.moe-ip-telegram.conf
+  url: https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-ip-telegram.conf
+- file_name: ruleset.skk.moe-ip-lan.conf
+  url: https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-ip-lan.conf
+- file_name: ruleset.skk.moe-non_ip-lan.conf
+  url: https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-non_ip-lan.conf

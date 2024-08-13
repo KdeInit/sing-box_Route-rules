@@ -1,8 +1,0 @@
-https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-domainset-reject.txt
-https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-non_ip-reject.conf
-https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-non_ip-reject.conf
-https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-ip-reject.conf
-https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-non_ip-ai.conf
-https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-ip-telegram.conf
-https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-ip-lan.conf
-https://raw.githubusercontent.com/KdeInit/sing-box_Route-rules/main/sources/ruleset.skk.moe-non_ip-lan.conf

@@ -85,9 +85,9 @@ def sort_dict(obj):
         return obj
 
 
-def parse_list_file(link, output_directory):
+def parse_list_file(link, output_directory, file_name):
+    base_file_name = os.path.splitext(file_name)[0]
     if link.endswith(".json"):
-        base_file_name = os.path.basename(link).rsplit(".", 1)[0]
         file_name = os.path.join(output_directory, f"{base_file_name}.json")
         response = requests.get(link)
         response.raise_for_status()
@@ -146,7 +146,6 @@ def parse_list_file(link, output_directory):
         domain_entries = list(set(domain_entries))
         if domain_entries:
             result_rules["rules"].insert(0, {"domain": domain_entries})
-        base_file_name = os.path.basename(link).rsplit(".", 1)[0]
         file_name = os.path.join(output_directory, f"{base_file_name}.json")
         with open(file_name, "w", encoding="utf-8") as output_file:
             json.dump(
@@ -158,16 +157,14 @@ def parse_list_file(link, output_directory):
     return file_name
 
 
-with open("./source.txt", "r") as links_file:
-    links = links_file.read().splitlines()
-
-links = [l for l in links if l.strip() and not l.strip().startswith("#")]
+with open("./source.yml", "r") as links_file:
+    links = yaml.safe_load(links_file)
 
 output_dir = "./output/"
 result_file_names = []
 
-for link in links:
-    result_file_name = parse_list_file(link, output_directory=output_dir)
+for link_info in links:
+    result_file_name = parse_list_file(link_info["url"], output_directory=output_dir, file_name=link_info["file_name"])
     result_file_names.append(result_file_name)
 
 for file_name in result_file_names:
