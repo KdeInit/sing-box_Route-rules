@@ -1,5 +1,3 @@
-name: Config Update
-
 on:
   workflow_dispatch:
   schedule:
@@ -35,18 +33,18 @@ jobs:
 
     - name: Run script
       run: |
-        mkdir -p ./data/
+        mkdir -p ./output/
         python convert.py
 
     - name: Archive files
-      run: tar -cvf ./data/rules_archive.tar --exclude="*.tar" -C ./data/ .
+      run: tar -cvf ./output/rules_archive.tar --exclude="*.tar" -C ./output/ .
 
     - name: Move files to rule_json and rule_srs
       run: |
         mkdir -p ./rule_json/
         mkdir -p ./rule_srs/
-        tar --wildcards -xvf ./data/rules_archive.tar -C ./rule_json/ '*.json'
-        tar --wildcards -xvf ./data/rules_archive.tar -C ./rule_srs/ '*.srs'
+        tar --wildcards -xvf ./output/rules_archive.tar -C ./rule_json/ '*.json'
+        tar --wildcards -xvf ./output/rules_archive.tar -C ./rule_srs/ '*.srs'
 
     - name: Commit and push config.json
       env:
@@ -61,6 +59,6 @@ jobs:
           echo "No changes to commit"
           exit 0
         else
-          git commit -m ":pencil: Fetch at  $(date +"%Y-%m-%d %H:%M")" -a
+          git commit -m ":pencil: Fetch at $(date +"%Y-%m-%d %H:%M")" -a
           git push
         fi
