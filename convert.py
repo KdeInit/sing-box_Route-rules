@@ -86,55 +86,65 @@ def sort_dict(obj):
 
 
 def parse_list_file(link, output_directory):
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        results = list(executor.map(parse_and_convert_to_dataframe, [link]))
-        df = pd.concat(results, ignore_index=True)
-    df = df[~df["pattern"].str.contains("#")].reset_index(drop=True)
-    map_dict = {
-        "DOMAIN-SUFFIX": "domain_suffix",
-        "HOST-SUFFIX": "domain_suffix",
-        "DOMAIN": "domain",
-        "HOST": "domain",
-        "host": "domain",
-        "DOMAIN-KEYWORD": "domain_keyword",
-        "HOST-KEYWORD": "domain_keyword",
-        "host-keyword": "domain_keyword",
-        "IP-CIDR": "ip_cidr",
-        "ip-cidr": "ip_cidr",
-        "IP-CIDR6": "ip_cidr",
-        "IP6-CIDR": "ip_cidr",
-        "SRC-IP-CIDR": "source_ip_cidr",
-        "GEOIP": "geoip",
-        "DST-PORT": "port",
-        "SRC-PORT": "source_port",
-        "URL-REGEX": "domain_regex",
-    }
-    df = df[df["pattern"].isin(map_dict.keys())].reset_index(drop=True)
-    df = df.drop_duplicates().reset_index(drop=True)
-    df["pattern"] = df["pattern"].replace(map_dict)
-    os.makedirs(output_directory, exist_ok=True)
+    if link.endswith(".json"):
+        base_file_name = os.path.basename(link).rsplit(".", 1)[0]
+        file_name = os.path.join(output_directory, f"{base_file_name}.json")
+        response = requests.get(link)
+        response.raise_for_status()
+        with open(file_name, "w", encoding="utf-8") as output_file:
+            output_file.write(response.text)
+    else:
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            results = list(executor.map(parse_and_convert_to_dataframe, [link]))
+            df = pd.concat(results, ignore_index=True)
+        df = df[~df["pattern"].str.contains("#")].reset_index(drop=True)
+        map_dict = {
+            "DOMAIN-SUFFIX": "domain_suffix",
+            "HOST-SUFFIX": "domain_suffix",
+            "DOMAIN": "domain",
+            "HOST": "domain",
+            "host": "domain",
+            "DOMAIN-KEYWORD": "domain_keyword",
+            "HOST-KEYWORD": "domain_keyword",
+            "host-keyword": "domain_keyword",
+            "IP-CIDR": "ip_cidr",
+            "ip-cidr": "ip_cidr",
+            "IP-CIDR6": "ip_cidr",
+            "IP6-CIDR": "ip_cidr",
+            "SRC-IP-CIDR": "source_ip_cidr",
+            "GEOIP": "geoip",
+            "DST-PORT": "port",
+            "SRC-PORT": "source_port",
+            "URL-REGEX": "domain_regex",
+        }
+        df = df[df["pattern"].isin(map_dict.keys())].reset_index(drop=True)
+        df = df.drop_duplicates().reset_index(drop=True)
+        df["pattern"] = df["pattern"].replace(map_dict)
+        os.makedirs(output_directory, exist_ok=True)
 
-    result_rules = {"version": 1, "rules": []}
-    domain_entries = []
-    for pattern, addresses in (
-        df.groupby("pattern")["address"].apply(list).to_dict().items()
-    ):
-        if pattern == "domain_suffix":
-            rule_entry = {pattern: ["." + address.strip() for address in addresses]}
-            result_rules["rules"].append(rule_entry)
-            domain_entries.extend([address.strip() for address in addresses])
-        elif pattern == "domain":
-            domain_entries.extend([address.strip() for address in addresses])
-        else:
-            rule_entry = {pattern: [address.strip() for address in addresses]}
-            result_rules["rules"].append(rule_entry)
-    domain_entries = list(set(domain_entries))
-    if domain_entries:
-        result_rules["rules"].insert(0, {"domain": domain_entries})
-    base_file_name = os.path.basename(link).rsplit(".", 1)[0]
-    file_name = os.path.join(output_directory, f"{base_file_name}.json")
-    with open(file_name, "w", encoding="utf-8") as output_file:
-        json.dump(sort_dict(result_rules), output_file, ensure_ascii=False, indent=2)
+        result_rules = {"version": 1, "rules": []}
+        domain_entries = []
+        for pattern, addresses in (
+            df.groupby("pattern")["address"].apply(list).to_dict().items()
+        ):
+            if pattern == "domain_suffix":
+                rule_entry = {pattern: ["." + address.strip() for address in addresses]}
+                result_rules["rules"].append(rule_entry)
+                domain_entries.extend([address.strip() for address in addresses])
+            elif pattern == "domain":
+                domain_entries.extend([address.strip() for address in addresses])
+            else:
+                rule_entry = {pattern: [address.strip() for address in addresses]}
+                result_rules["rules"].append(rule_entry)
+        domain_entries = list(set(domain_entries))
+        if domain_entries:
+            result_rules["rules"].insert(0, {"domain": domain_entries})
+        base_file_name = os.path.basename(link).rsplit(".", 1)[0]
+        file_name = os.path.join(output_directory, f"{base_file_name}.json")
+        with open(file_name, "w", encoding="utf-8") as output_file:
+            json.dump(
+                sort_dict(result_rules), output_file, ensure_ascii=False, indent=2
+            )
 
     srs_path = file_name.replace(".json", ".srs")
     os.system(f"sing-box rule-set compile --output {srs_path} {file_name}")
