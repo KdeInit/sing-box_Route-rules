@@ -34,8 +34,9 @@ jobs:
         pip install pandas requests pyyaml
 
     - name: Run script
-      run: python ../convert.py
-      working-directory: ./data/
+      run: |
+        mkdir -p ./data/
+        python convert.py
 
     - name: Archive files
       run: tar -cvf ./data/rules_archive.tar --exclude="*.tar" -C ./data/ .
