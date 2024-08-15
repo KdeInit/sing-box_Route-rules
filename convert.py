@@ -25,9 +25,7 @@ def is_ipv4_or_ipv6(address):
         return "ipv4"
     except ValueError:
         try:
-            ipaddress.IPv6Network(
-                address
-            )
+            ipaddress.IPv6Network(address)
             return "ipv6"
         except ValueError:
             return None
@@ -99,6 +97,7 @@ def sort_dict(obj):
 
 
 def process_json_file(link, output_directory, base_file_name):
+    os.makedirs(output_directory, exist_ok=True)
     file_name = os.path.join(
         output_directory, f"{base_file_name}.json"
     )  # Construct the output file path
