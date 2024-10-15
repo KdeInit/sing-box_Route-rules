@@ -2,9 +2,7 @@
   "version": 2,
   "rules": [
     {
-      "domain": [
-        "this_ruleset_is_made_by_sukkaw.ruleset.skk.moe"
-      ],
+      "domain": [],
       "domain_suffix": [
         "lan",
         "localhost",
