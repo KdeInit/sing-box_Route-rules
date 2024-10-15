@@ -10,3 +10,7 @@
   url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/sing-box/ip/lan.json
 - file_name: ruleset.skk.moe-non_ip-lan.json
   url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/sing-box/non_ip/lan.json
+- file_name: meta-rules-dat-geoip-apple.json
+  url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/apple.json
+- file_name: meta-rules-dat-geoip-google.json
+  url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/google.json
