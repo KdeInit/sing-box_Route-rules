@@ -110,6 +110,13 @@ def process_json_file(link, output_directory, base_file_name):
     if json_data.get("version") == 1:
         json_data["version"] = 2
 
+    for rule in json_data["rules"]:
+        if (
+            "domain" in rule
+            and "this_ruleset_is_made_by_sukkaw.ruleset.skk.moe" in rule["domain"]
+        ):
+            rule["domain"].remove("this_ruleset_is_made_by_sukkaw.ruleset.skk.moe")
+
     with open(file_name, "w", encoding="utf-8") as output_file:
         json.dump(
             json_data, output_file, ensure_ascii=False, indent=2
