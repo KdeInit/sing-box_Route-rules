@@ -110,11 +110,12 @@ def process_json_file(link, output_directory, base_file_name):
     if json_data.get("version") == 1:
         json_data["version"] = 2
 
-    if "domain" in json_data and "this_ruleset_is_made_by_sukkaw.ruleset.skk.moe" in json_data["domain"]:
-        json_data["domain"].remove("this_ruleset_is_made_by_sukkaw.ruleset.skk.moe")
-
-    if "rules" in json_data:
-        json_data["rules"] = [rule for rule in json_data["rules"] if rule]
+    for rule in json_data["rules"]:
+        if (
+            "domain" in rule
+            and "this_ruleset_is_made_by_sukkaw.ruleset.skk.moe" in rule["domain"]
+        ):
+            rule["domain"].remove("this_ruleset_is_made_by_sukkaw.ruleset.skk.moe")
 
     with open(file_name, "w", encoding="utf-8") as output_file:
         json.dump(
