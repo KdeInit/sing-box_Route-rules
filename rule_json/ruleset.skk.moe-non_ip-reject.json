@@ -4,6 +4,8 @@
     {
       "domain": [
         "dns.weibo.cn",
+        "ttnet-dig.feishu.cn",
+        "ttnet-doh.feishu.cn",
         "dns.jd.com",
         "httpdns.baidu.com",
         "httpsdns.baidu.com",
