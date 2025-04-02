@@ -8,6 +8,12 @@
   url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/sing-box/ip/telegram.json
 - file_name: ruleset.skk.moe-ip-lan.json
   url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/sing-box/ip/lan.json
+- file_name: ruleset.skk.moe-non_ip-sogouinput.json
+  url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/sing-box/non_ip/sogouinput.json
+- file_name: ruleset.skk.moe-non_ip-download.json
+  url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/sing-box/non_ip/download.json
+- file_name: ruleset.skk.moe-domainset-download.json
+  url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/sing-box/domainset/download.json
 - file_name: ruleset.skk.moe-non_ip-lan.json
   url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/sing-box/non_ip/lan.json
 - file_name: meta-rules-dat-geoip-apple.json
