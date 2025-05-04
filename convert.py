@@ -105,10 +105,9 @@ def process_json_file(link, output_directory, base_file_name):
     response.raise_for_status()  # Raise an error if the request was unsuccessful
     json_data = response.json()  # Parse the sing-box's JSON content from the response
 
-    # sing-box rule-set format version 2 is already supported in latest release.
-    # Upgrade rule-set version to 2.
-    if json_data.get("version") == 1:
-        json_data["version"] = 2
+    # sing-box rule-set format version 3 is already supported in latest release.
+    # Upgrade rule-set version to 3.
+    if json_data.get("version") != 3: json_data["version"] = 3
 
     for rule in json_data["rules"]:
         if (
