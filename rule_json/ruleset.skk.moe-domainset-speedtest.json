@@ -3,7 +3,6 @@
   "rules": [
     {
       "domain": [
-        "th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe",
         "nyc01.screenshot.download",
         "mia01.screenshot.download",
         "lax01.screenshot.download",
@@ -230,7 +229,6 @@
         "ipl3pt.fft.ops.eu.uu.net",
         "speedtest-cbr.cdn.on.net",
         "srv3.vncv1.bc.net",
-        "th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe",
         "speedtest1.net.rochester.edu",
         "speedtest.clarkson.edu",
         "speedtest1.net.cornell.edu",
@@ -1081,7 +1079,6 @@
         "speedtest.58243.as"
       ],
       "domain_suffix": [
-        "th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe",
         "measurement-lab.org",
         "backend.librespeed.org",
         "speed.misaka.one",

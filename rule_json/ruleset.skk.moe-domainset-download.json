@@ -3,7 +3,6 @@
   "rules": [
     {
       "domain": [
-        "th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe",
         "mirror.kumi.systems",
         "mirrors.gethosted.online",
         "dl.thorium.rocks",
@@ -679,7 +678,6 @@
         "mirror.host.ag"
       ],
       "domain_suffix": [
-        "th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe",
         "fnbuilds.services",
         "nitro.download",
         "kali.download",
