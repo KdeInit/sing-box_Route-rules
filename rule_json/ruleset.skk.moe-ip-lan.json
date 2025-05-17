@@ -2,8 +2,6 @@
   "version": 3,
   "rules": [
     {
-      "domain": [],
-      "domain_suffix": [],
       "ip_cidr": [
         "0.0.0.0/8",
         "10.0.0.0/8",
