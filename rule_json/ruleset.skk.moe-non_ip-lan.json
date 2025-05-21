@@ -17,6 +17,7 @@
       ],
       "domain_suffix": [
         "localdomain",
+        "internal",
         "router",
         "plex.direct",
         "ui.direct",
