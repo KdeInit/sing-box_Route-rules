@@ -4,12 +4,12 @@
     {
       "domain_regex": [
         "^cdn-[\\w.-]*?\\.comaps\\.tech$",
-        "^cdn-[\\w.-]*?\\.organicmaps\\.app$",
-        "^cdn-[\\w.-]*?\\.comaps\\.app$",
         "^ftp\\.[\\w.-][\\w.-]\\.freebsd\\.org$",
         "^ftp\\.[\\w.-][\\w.-]\\.debian\\.org$",
         "^[\\w.-]*?\\.s3\\.[\\w.-]*?\\.backblazeb2\\.com$",
-        "^download[\\w.-]*?\\.mediafire\\.com$"
+        "^download[\\w.-]*?\\.mediafire\\.com$",
+        "^cdn-[\\w.-]*?\\.organicmaps\\.app$",
+        "^cdn-[\\w.-]*?\\.comaps\\.app$"
       ]
     }
   ]
