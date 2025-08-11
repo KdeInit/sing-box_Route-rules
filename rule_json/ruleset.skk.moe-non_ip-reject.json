@@ -64,7 +64,8 @@
         "doh.zjurl.cn",
         "dns.weibo.cn",
         "dns.weixin.qq.com.cn",
-        "dns.m.sm.cn"
+        "dns.m.sm.cn",
+        "ntp.api.bz"
       ],
       "domain_suffix": [
         "data",
