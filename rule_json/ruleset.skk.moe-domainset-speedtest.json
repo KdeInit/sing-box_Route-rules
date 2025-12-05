@@ -1450,6 +1450,7 @@
         "speedtest01.syd1.spintel.net.au",
         "speedtest01.per1.spintel.net.au",
         "speedtest01.mel1.spintel.net.au",
+        "speedtest01.bne1.spintel.net.au",
         "ookla.sy1.neptune.net.au",
         "ookla.me1.neptune.net.au",
         "ookla.p2.neptune.net.au",
@@ -1522,7 +1523,8 @@
         "speedtest-mel0.encoo.com.au",
         "speedtest.capti.com.au",
         "speedtest1.sxbb.com.au",
-        "speedtest.58243.as"
+        "speedtest.58243.as",
+        "speedtest-ams.baremetal.ae"
       ],
       "domain_suffix": [
         "speedtest.love",
