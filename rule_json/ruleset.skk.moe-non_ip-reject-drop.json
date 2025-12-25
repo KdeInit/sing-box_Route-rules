@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain": [
+        "nom.telemetrydeck.com",
+        "stat.youpin.mi.com"
+      ],
+      "domain_suffix": [
+        "undefined",
+        "null",
+        "getui.net",
+        "easytomessage.com",
+        "gepush.com",
+        "getui.com",
+        "in.applicationinsights.azure.com",
+        "geo2.adobe.com",
+        "tracking.miui.com",
+        "tracking.intl.miui.com",
+        "beacon.qq.com",
+        "trace.qq.com",
+        "f-log-extension.grammarly.io",
+        "jpush.io",
+        "jpush.cn"
+      ]
+    }
+  ]
+}
