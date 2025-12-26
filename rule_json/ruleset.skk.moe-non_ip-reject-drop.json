@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain": [
+        "stats.grafana.org",
         "nom.telemetrydeck.com",
         "stat.youpin.mi.com"
       ],
