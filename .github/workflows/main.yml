@@ -34,6 +34,7 @@ jobs:
     - name: Run script
       run: |
         mkdir -p ./output/
+        python tencent.py
         python convert.py
 
     - name: Archive files
