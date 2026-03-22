@@ -16,7 +16,7 @@ def fetch_prefixes(asn):
 
 
 def main():
-    target_asns = ["AS45090", "AS132203"]
+    target_asns = ["AS45090", "AS132203", "AS139341"]
 
     all_prefixes = []
     for asn in target_asns:
