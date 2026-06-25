@@ -4,6 +4,7 @@
     {
       "domain": [
         "ossmirror.mycloud.services",
+        "dl.orangefox.download",
         "mirror.kumi.systems",
         "mirror.level66.network",
         "mirror.hostiko.network",
@@ -1916,6 +1917,7 @@
         "mirror.true.nl",
         "ubuntu.nautile.nc",
         "mirrors.cicku.me",
+        "dl.twrp.me",
         "mirror.root.lu",
         "mirror.serveriai.lt",
         "mirror.vu.lt",
