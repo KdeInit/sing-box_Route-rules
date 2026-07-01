@@ -3,10 +3,10 @@
   "rules": [
     {
       "domain": [
-        "cdn-msp.18comic.vip",
+        "cdn-msp.jmcomic.me",
         "cdn-msp.18comic.org",
-        "cdn-msp.jmcomic-zzz.one",
-        "cdn-msp.jmcomic.me"
+        "cdn-msp.18comic.vip",
+        "cdn-msp.jmcomic-zzz.one"
       ],
       "domain_keyword": [
         "-files.gitbook.io",
