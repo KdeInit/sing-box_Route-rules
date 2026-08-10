@@ -4,7 +4,6 @@
     {
       "domain": [
         "dns.jd.com",
-        "ntp.api.bz",
         "dns.m.sm.cn",
         "dns.weibo.cn",
         "doh.zjurl.cn",
@@ -77,6 +76,7 @@
       ],
       "domain_suffix": [
         "data",
+        "api.bz",
         "bgp.co",
         "hola.hk",
         "hola.ph",
