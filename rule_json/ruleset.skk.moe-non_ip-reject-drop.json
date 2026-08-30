@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain": [
+        "data.bilibili.com",
         "stats.grafana.org",
         "stat.youpin.mi.com",
         "dataflow.biliapi.com",
