@@ -36,3 +36,5 @@
   url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/google.json
 - file_name: xkww3n.cyou-wechat.json
   url: https://rules.xkww3n.cyou/sing-ruleset/wechat.json
+- file_name: ruleset.skk.moe-non_ip-stream.json
+  url: https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/sing-box/non_ip/stream.json
