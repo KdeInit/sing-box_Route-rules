@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain": [
+        "api.segment.io",
         "data.bilibili.com",
         "stats.grafana.org",
         "stat.youpin.mi.com",
@@ -19,6 +20,7 @@
         "gepush.com",
         "slackb.com",
         "trace.qq.com",
+        "amplitude.com",
         "beacon.qq.com",
         "geo2.adobe.com",
         "easytomessage.com",
